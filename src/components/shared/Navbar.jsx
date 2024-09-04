@@ -1,7 +1,11 @@
+import { Dot, LogOut, User } from "lucide-react";
+import { Avatar, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-  const user = true;
+  const user = false;
   return (
     <div className="">
       <div className="flex justify-between items-center max-w-7xl mx-auto h-14">
@@ -16,22 +20,77 @@ function Navbar() {
         <div className="flex gap-8 items-center">
           {!user ? (
             <div className="space-x-2">
-              <Button variant="link">Log in</Button>
-              <Button variant="secondary">Sign up</Button>
+              <Link to="/login">
+                <Button variant="link">Log in</Button>
+              </Link>
+              <Link to="/signup">
+                <Button variant="secondary">Sign up</Button>
+              </Link>
             </div>
           ) : (
-            <div>
+            <div className="flex gap-10 items-center">
               <div>
-                <ul className="flex gap-2 text-lg">
-                  <li>Home</li>
-                  <li>Jobs</li>
-                  <li>Browse</li>
+                <ul className="flex gap-4 text-md text-muted-foreground font-semibold">
+                  <li className="cursor-pointer">Home</li>
+                  <li className="cursor-pointer">Jobs</li>
+                  <li className="cursor-pointer">Browse</li>
                 </ul>
               </div>
               <div>
-                
-              </div>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="secondary"
+                      className=" text-muted-foreground"
+                    >
+                      <User className="mr-1 h-4 w-4" /> Muhammad Wasif
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-80 rounded-2xl mt-4">
+                    <div className="flex-col text-center justify-center flex gap-4">
+                      <div className="relative flex justify-center">
+                        <Avatar>
+                          <AvatarImage
+                            src="https://github.com/shadcn.png"
+                            alt="@shadcn"
+                          />
+                        </Avatar>
+                      </div>
 
+                      <div>
+                        <h1 className="text-xl">Hi, Muhammad Wasif</h1>
+                        <p className="text-muted-foreground">
+                          Full Stack Developer
+                        </p>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button
+                          variant="secondary"
+                          className="w-full text-muted-foreground"
+                        >
+                          <User className="mr-1 h-4 w-4" /> Profile
+                        </Button>
+                        <Button
+                          variant="secondary"
+                          className="w-full text-muted-foreground"
+                        >
+                          <LogOut className="mr-1 h-4 w-4" /> Sign out
+                        </Button>
+                      </div>
+                      <div>
+                        <ul className="flex justify-center items-center text-muted-foreground text-xs">
+                          <li className="cursor-pointer">Privacy Policy</li>
+                          <li>
+                            {" "}
+                            <Dot />
+                          </li>
+                          <li className="cursor-pointer">Terms of service</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+              </div>
             </div>
           )}
         </div>
