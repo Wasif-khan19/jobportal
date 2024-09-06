@@ -24,7 +24,7 @@ function Navbar() {
                 <Button variant="link">Log in</Button>
               </Link>
               <Link to="/signup">
-                <Button variant="secondary">Sign up</Button>
+                <Button >Sign up</Button>
               </Link>
             </div>
           ) : (

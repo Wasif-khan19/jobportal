@@ -1,11 +1,13 @@
-import Navbar from '../shared/Navbar'
+import Hero from "../Pages/Hero";
+import Navbar from "../shared/Navbar";
 
 const Layout = () => {
   return (
-    <>
-    <Navbar/>
-    </>
-  )
-}
+    <div>
+      <Navbar />
+      <Hero />
+    </div>
+  );
+};
 
-export default Layout
+export default Layout;
