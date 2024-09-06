@@ -25,9 +25,9 @@ function Signup() {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  const fileHandler = (e) => {
-    setInput({ ...input, file: e.target.files?.[0] });
-  };
+  // const fileHandler = (e) => {
+  //   setInput({ ...input, file: e.target.files?.[0] });
+  // }; we will use this in profile section
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -164,15 +164,7 @@ function Signup() {
                       </div>
                     </div>
                   </RadioGroup>
-                  <div>
-                    <Label htmlFor="picture">Picture</Label> 
-                    <Input
-                      id="picture"
-                      onChange={fileHandler}
-                      type="file"
-                      accept="image/*"
-                    />
-                  </div>
+                 
                 </div>
 
                 {/* Submit Button */}

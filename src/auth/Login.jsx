@@ -1,3 +1,4 @@
+import { setLoading } from "@/components/redux/authSlice";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,11 +7,13 @@ import { USER_API_ENDPOINT } from "@/utils/api";
 import axios from "axios";
 import { ChevronLeft } from "lucide-react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [input, setInput] = useState({
     email: "",
@@ -26,6 +29,7 @@ function Login() {
     e.preventDefault();
 
     try {
+      dispatch(setLoading(true));
       const res = await axios.post(`${USER_API_ENDPOINT}/login`, input, {
         headers: {
           "Content-Type": "application/json",
@@ -38,8 +42,11 @@ function Login() {
       }
     } catch (error) {
       toast.message(error.response.data.message);
+    } finally {
+      dispatch(setLoading(false));
     }
   };
+  
   return (
     <div>
       <div className="py-10 px-10">
