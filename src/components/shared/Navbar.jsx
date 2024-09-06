@@ -5,7 +5,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const user = true;
+  const user = false;
   return (
     <div className="">
       <div className="flex justify-between items-center max-w-7xl mx-auto h-14">

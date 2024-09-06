@@ -7,11 +7,12 @@ import { USER_API_ENDPOINT } from "@/utils/api";
 import axios from "axios";
 import { ChevronLeft } from "lucide-react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 function Login() {
+  const { loading } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -46,7 +47,7 @@ function Login() {
       dispatch(setLoading(false));
     }
   };
-  
+
   return (
     <div>
       <div className="py-10 px-10">
@@ -123,9 +124,15 @@ function Login() {
                     </div>
                   </RadioGroup>
                 </div>
-                <Button type="submit" className="w-full">
-                  Log in
-                </Button>
+                {loading ? (
+                  <Button variant="secondary" className="w-full" disabled>
+                    Logging in...
+                  </Button>
+                ) : (
+                  <Button type="submit" className="w-full">
+                    Log in
+                  </Button>
+                )}
               </div>
               <div className=" text-center text-sm">
                 Don&apos;t have an account?{" "}

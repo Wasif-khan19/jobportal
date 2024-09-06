@@ -1,3 +1,4 @@
+import { setLoading } from "@/components/redux/authSlice";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,18 +7,21 @@ import { USER_API_ENDPOINT } from "@/utils/api";
 import axios from "axios";
 import { ChevronLeft } from "lucide-react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 function Signup() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const loading = useSelector((state)=>state.auth)
 
   const [input, setInput] = useState({
     email: "",
     fullname: "",
     phoneNumber: "",
     password: "",
-    role: "", 
+    role: "",
     file: "",
   });
 
@@ -40,8 +44,9 @@ function Signup() {
     if (input.file) {
       formData.append("file", input.file);
     }
-  
+
     try {
+      dispatch(setLoading(true));
       const res = await axios.post(`${USER_API_ENDPOINT}/register`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -54,6 +59,8 @@ function Signup() {
       }
     } catch (error) {
       toast.error(error.response?.data?.message || "Something went wrong");
+    } finally {
+      dispatch(setLoading(false));
     }
   };
 
@@ -95,8 +102,8 @@ function Signup() {
                 <div className="grid gap-2">
                   <Label htmlFor="phoneNumber">Phone Number</Label>
                   <Input
-                    id="phoneNumber" 
-                    type="text" 
+                    id="phoneNumber"
+                    type="text"
                     placeholder="+1(420)-6969-6969"
                     required
                     name="phoneNumber"
@@ -136,7 +143,7 @@ function Signup() {
 
                 {/* Role and Picture */}
                 <div className="flex justify-between">
-                  <RadioGroup defaultValue="student"> 
+                  <RadioGroup defaultValue="student">
                     <div className="flex gap-3">
                       <div className="flex items-center space-x-1">
                         <Input
@@ -164,13 +171,18 @@ function Signup() {
                       </div>
                     </div>
                   </RadioGroup>
-                 
                 </div>
 
                 {/* Submit Button */}
-                <Button type="submit" className="w-full">
-                  Sign up
-                </Button>
+                {loading ? (
+                  <Button variant="secondary" className="w-full" disabled>
+                    Signing up...
+                  </Button>
+                ) : (
+                  <Button type="submit" className="w-full">
+                    Sign up
+                  </Button>
+                )}
               </div>
 
               {/* Login Link */}
