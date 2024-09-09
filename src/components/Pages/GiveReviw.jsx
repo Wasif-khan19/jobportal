@@ -9,11 +9,10 @@ function GiveReviw() {
           Please give a valuable review
         </h1>
         <div className="mt-10">
-        <Button className="text-center">
-          <a href="https://www.google.com">Give Review</a>
-        </Button>
+          <Button className="text-center">
+            <a href="https://www.google.com">Give Review</a>
+          </Button>
         </div>
-        
       </div>
     </div>
   );

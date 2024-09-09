@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
 import { Dot, LogOut, User } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Avatar, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);

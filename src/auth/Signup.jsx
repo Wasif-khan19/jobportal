@@ -14,7 +14,7 @@ import { toast } from "sonner";
 function Signup() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const loading = useSelector((state)=>state.auth.Loading)
+  const loading = useSelector((state) => state.auth.Loading);
 
   const [input, setInput] = useState({
     email: "",

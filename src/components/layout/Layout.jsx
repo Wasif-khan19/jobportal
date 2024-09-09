@@ -9,10 +9,9 @@ const Layout = () => {
     <div>
       <Navbar />
       <Hero />
-      <Jobs/>
-      <SliderCarousel/>
-      
-      <Footer/>
+      <Jobs />
+      <SliderCarousel />
+      <Footer />
     </div>
   );
 };
