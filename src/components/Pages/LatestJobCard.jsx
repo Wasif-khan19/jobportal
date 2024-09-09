@@ -14,9 +14,9 @@ function LatestJobCard() {
     </div>
 
     <div className="flex gap-4">
-      <Badge>Full Time</Badge>
-      <Badge>Remote</Badge>
-      <Badge>90 LPA</Badge>
+      <Badge variant='outline' className='text-purple-500'>Full Time</Badge>
+      <Badge variant='outline' className='text-purple-500'>Remote</Badge>
+      <Badge variant='outline' className='text-purple-500'>90 LPA</Badge>
     </div>
   </div>
   )

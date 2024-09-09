@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Dot, LogOut, User } from "lucide-react";
 import { Avatar, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
@@ -5,10 +6,33 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
   const user = false;
+
+  // Listen to scroll and update the isScrolled state
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="">
-      <div className="flex justify-between items-center max-w-7xl mx-auto h-14">
+    <div
+      className={`sticky top-0 z-50 bg-white ${
+        isScrolled ? "backdrop-blur-lg bg-opacity-70" : ""
+      }`}
+    >
+      <div className="flex justify-between items-center max-w-7xl mx-auto h-14 bg-white">
         {/* left side */}
         <div className="">
           <h1 className="text-xl font-semibold">
@@ -21,10 +45,10 @@ function Navbar() {
           {!user ? (
             <div className="space-x-2">
               <Link to="/login">
-                <Button variant="link">Log in</Button>
+                <Button variant="outline">Log in</Button>
               </Link>
               <Link to="/signup">
-                <Button >Sign up</Button>
+                <Button>Sign up</Button>
               </Link>
             </div>
           ) : (
