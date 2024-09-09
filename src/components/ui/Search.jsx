@@ -8,7 +8,7 @@ export function PlaceholdersAndVanishInputDemo() {
     "Frontend Developer",
     "Backend Developer",
     "Devops Engineer",
-    "Data Scientist and Machine Learning Engineer",
+    "Data Scientist",
   ];
 
   const handleChange = (e) => {
