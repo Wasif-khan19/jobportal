@@ -2,7 +2,7 @@ import { Facebook, Github, Instagram, Linkedin } from "lucide-react";
 
 function Footer() {
   return (
-    <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col border-t-2">
+    <div className="container px-5 py-2 mx-auto flex items-center sm:flex-row flex-col border-t-2">
       <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
         <span className="ml-3 text-xl">JobPortal</span>
       </a>
