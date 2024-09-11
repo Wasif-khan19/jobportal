@@ -9,12 +9,12 @@ const Hero = () => {
       ></div>
       <div className="mx-auto max-w-2xl py-32 sm:py-24 lg:py-24">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-          <div className="relative flex rounded-full px-10 py-1 text-sm items-center leading-6 font-semibold text-muted-foreground bg-purple-200 text-purple-500">
+          <div className="relative flex rounded-full px-10 py-1 text-sm items-center leading-6 font-semibold bg-rose-100 text-rose-500">
             No.1 Job Portal In Our Universe
           </div>
         </div>
         <div className="text-center">
-          <h1 className="text-4xl font-semibold tracking-tight text-black sm:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tight text-black sm:text-6xl">
             Search, Apply & Get Your Dream Job
           </h1>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">

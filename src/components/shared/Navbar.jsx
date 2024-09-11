@@ -7,7 +7,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const user = false;
+  const user = true;
 
   // Listen to scroll and update the isScrolled state
   useEffect(() => {
@@ -45,7 +45,7 @@ function Navbar() {
           {!user ? (
             <div className="space-x-2">
               <Link to="/login">
-                <Button variant="outline">Log in</Button>
+                <Button variant="outline">Log in</Button> 
               </Link>
               <Link to="/signup">
                 <Button>Sign up</Button>
@@ -56,7 +56,8 @@ function Navbar() {
               <div>
                 <ul className="flex gap-4 text-md text-muted-foreground font-semibold">
                   <li className="cursor-pointer">Home</li>
-                  <li className="cursor-pointer">Jobs</li>
+                  <Link to='/jobs'><li  className="cursor-pointer">Jobs</li></Link>
+                  
                   <li className="cursor-pointer">Browse</li>
                 </ul>
               </div>
@@ -65,9 +66,9 @@ function Navbar() {
                   <PopoverTrigger asChild>
                     <Button
                       variant="secondary"
-                      className=" text-muted-foreground"
+                      className=" text-muted-foreground "
                     >
-                      <User className="mr-1 h-4 w-4" /> Muhammad Wasif
+                      <User className="mr-1 h-4 w-4 " /> Muhammad Wasif
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-80 rounded-2xl mt-4">

@@ -83,10 +83,10 @@ function SliderCarousel() {
     <div className="relative isolate px-6 lg:px-8 justify-center items-center flex">
       <div className="mx-w-7xl py-28 sm:py-18 lg:py-18">
         <div className="">
-          <p className="text-center font-semibold text-purple-500">
+          <p className="text-center font-medium text-rose-500">
             TESTIMONALS HIGHLIGHTS
           </p>
-          <h1 className="text-center text-6xl font-semibold tracking-tight text-black sm:text-5xl">
+          <h1 className="text-center text-6xl font-bold tracking-tight text-black sm:text-4xl">
             What our users are saying
           </h1>
           <div className="max-w-3xl mt-10">

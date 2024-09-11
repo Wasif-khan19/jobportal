@@ -2,7 +2,7 @@ import { Badge } from "../ui/badge";
 
 function LatestJobCard() {
   return (
-    <div className=" rounded-md bg-white p-4 mt-6 shadow-md shadow-white cursor-pointer space-y-2">
+    <div className=" rounded-md bg-white p-4 mt-6  cursor-pointer space-y-2">
       <div>
         <h1 className="font-bold text-lg">Comapny Name</h1>
         <p className="text-md font-normal text-muted-foreground">Country</p>
@@ -16,13 +16,13 @@ function LatestJobCard() {
       </div>
 
       <div className="flex gap-4">
-        <Badge variant="outline" className="text-purple-500">
+        <Badge variant="outline" className="text-rose-500">
           Full Time
         </Badge>
-        <Badge variant="outline" className="text-purple-500">
+        <Badge variant="outline" className="text-rose-500">
           Remote
         </Badge>
-        <Badge variant="outline" className="text-purple-500">
+        <Badge variant="outline" className="text-rose-500">
           90 LPA
         </Badge>
       </div>
