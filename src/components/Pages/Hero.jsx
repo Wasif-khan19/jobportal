@@ -9,7 +9,7 @@ const Hero = () => {
       ></div>
       <div className="mx-auto max-w-2xl py-32 sm:py-24 lg:py-24">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-          <div className="relative flex rounded-full px-10 py-1 text-sm items-center leading-6 font-semibold bg-rose-100 text-rose-500">
+          <div className="relative flex rounded-full px-10 py-1 text-sm items-center leading-6 font-semibold bg-gray-100 text-black-500">
             No.1 Job Portal In Our Universe
           </div>
         </div>

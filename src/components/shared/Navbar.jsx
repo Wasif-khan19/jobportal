@@ -35,9 +35,11 @@ function Navbar() {
       <div className="flex justify-between items-center max-w-7xl mx-auto h-14 bg-white">
         {/* left side */}
         <div className="">
-          <h1 className="text-xl font-semibold">
-            Job<span className="px-1">Portal</span>
-          </h1>
+          <Link to="/">
+            <h1 className="text-xl font-semibold">
+              Job<span className="px-1">Portal</span>
+            </h1>
+          </Link>
         </div>
 
         {/* right side */}
@@ -45,7 +47,7 @@ function Navbar() {
           {!user ? (
             <div className="space-x-2">
               <Link to="/login">
-                <Button variant="outline">Log in</Button> 
+                <Button variant="outline">Log in</Button>
               </Link>
               <Link to="/signup">
                 <Button>Sign up</Button>
@@ -55,9 +57,14 @@ function Navbar() {
             <div className="flex gap-10 items-center">
               <div>
                 <ul className="flex gap-4 text-md text-muted-foreground font-semibold">
-                  <li className="cursor-pointer">Home</li>
-                  <Link to='/jobs'><li  className="cursor-pointer">Jobs</li></Link>
-                  
+                  <Link to='/'>
+                    <li className="cursor-pointer ">Home</li>
+                  </Link>
+
+                  <Link to="/jobs">
+                    <li className="cursor-pointer">Jobs</li>
+                  </Link>
+
                   <li className="cursor-pointer">Browse</li>
                 </ul>
               </div>
