@@ -6,7 +6,7 @@ const randomjobs = [1, 2, 3, 4, 5, 6, 7, 8];
 
 function Jobs() {
   return (
-    <div className="relative isolate px-6 lg:px-8 bg-gray-100">
+    <div className="relative isolate px-6 lg:px-8 ">
       <div className="mx-w-7xl py-28 sm:py-12 lg:py-14">
         <div className="">
           <p className="text-center font-medium text-muted-foreground">CAREERS</p>

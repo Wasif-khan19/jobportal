@@ -32,7 +32,7 @@ function Navbar() {
         isScrolled ? "backdrop-blur-lg bg-opacity-70" : ""
       }`}
     >
-      <div className="flex justify-between items-center max-w-7xl mx-auto h-14 bg-white">
+      <div className="flex justify-between items-center h-14 bg-white">
         {/* left side */}
         <div className="">
           <Link to="/">
