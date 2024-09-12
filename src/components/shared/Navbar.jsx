@@ -57,15 +57,15 @@ function Navbar() {
             <div className="flex gap-10 items-center">
               <div>
                 <ul className="flex gap-4 text-md text-muted-foreground font-semibold">
-                  <Link to='/'>
+                  <Link to="/">
                     <li className="cursor-pointer ">Home</li>
                   </Link>
-
                   <Link to="/jobs">
                     <li className="cursor-pointer">Jobs</li>
                   </Link>
-
-                  <li className="cursor-pointer">Browse</li>
+                  <Link to="/browse">
+                    <li className="cursor-pointer">Browse</li>
+                  </Link>
                 </ul>
               </div>
               <div>
