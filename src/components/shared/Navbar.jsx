@@ -1,13 +1,15 @@
 import { Dot, LogOut, User } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Avatar, AvatarImage } from "../ui/avatar";
+import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const user = true;
+
+  const { user } = useSelector((store) => store.auth);
 
   // Listen to scroll and update the isScrolled state
   useEffect(() => {
@@ -57,14 +59,14 @@ function Navbar() {
             <div className="flex gap-10 items-center">
               <div>
                 <ul className="flex gap-4 text-md text-muted-foreground font-semibold">
-                  <Link to='/'>
+                  <Link to="/">
                     <li className="cursor-pointer ">Home</li>
                   </Link>
                   <Link to="/jobs">
                     <li className="cursor-pointer">Jobs</li>
                   </Link>
-                  <Link to='/browse'>
-                   <li className="cursor-pointer">Browse</li>
+                  <Link to="/browse">
+                    <li className="cursor-pointer">Browse</li>
                   </Link>
                 </ul>
               </div>
@@ -81,11 +83,8 @@ function Navbar() {
                   <PopoverContent className="w-80 rounded-2xl mt-4">
                     <div className="flex-col text-center justify-center flex gap-4">
                       <div className="relative flex justify-center">
-                        <Avatar>
-                          <AvatarImage
-                            src="https://github.com/shadcn.png"
-                            alt="@shadcn"
-                          />
+                        <Avatar className="h-20 w-20">
+                          <AvatarFallback>MW</AvatarFallback>
                         </Avatar>
                       </div>
 
@@ -100,7 +99,7 @@ function Navbar() {
                           variant="secondary"
                           className="w-full text-muted-foreground"
                         >
-                          <User className="mr-1 h-4 w-4" /> Profile
+                          <Link className="flex items-center" to='/profile'><User className="mr-1 h-4 w-4" /> Profile</Link>
                         </Button>
                         <Button
                           variant="secondary"

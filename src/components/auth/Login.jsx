@@ -1,4 +1,4 @@
-import { setLoading } from "@/components/redux/authSlice";
+import { setLoading, setUser } from "@/components/redux/authSlice";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -38,6 +38,7 @@ function Login() {
         withCredentials: true,
       });
       if (res.data.success) {
+        dispatch(setUser(res.data.user))
         navigate("/");
         toast.message(res.data.message);
       }
