@@ -32,7 +32,7 @@ function Navbar() {
         isScrolled ? "backdrop-blur-lg bg-opacity-70" : ""
       }`}
     >
-      <div className="flex justify-between items-center h-14 bg-white">
+      <div className="flex justify-between items-center max-w-7xl mx-auto h-14 bg-white">
         {/* left side */}
         <div className="">
           <Link to="/">
@@ -57,14 +57,14 @@ function Navbar() {
             <div className="flex gap-10 items-center">
               <div>
                 <ul className="flex gap-4 text-md text-muted-foreground font-semibold">
-                  <Link to="/">
+                  <Link to='/'>
                     <li className="cursor-pointer ">Home</li>
                   </Link>
                   <Link to="/jobs">
                     <li className="cursor-pointer">Jobs</li>
                   </Link>
-                  <Link to="/browse">
-                    <li className="cursor-pointer">Browse</li>
+                  <Link to='/browse'>
+                   <li className="cursor-pointer">Browse</li>
                   </Link>
                 </ul>
               </div>
