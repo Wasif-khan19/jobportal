@@ -16,6 +16,7 @@ function TotalJobs() {
           </Button>
         </div>
       </div>
+      
       <div className="flex items-center gap-2">
         <div className="items-center justify-center flex">
           <Button className="" size="icon" variant="outline">

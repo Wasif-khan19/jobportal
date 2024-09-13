@@ -9,7 +9,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const { user } = useSelector((store) => store.auth);
+  // const { user } = useSelector((store) => store.auth);
+  const user = true
 
   // Listen to scroll and update the isScrolled state
   useEffect(() => {
