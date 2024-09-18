@@ -1,1 +1,1 @@
-export const USER_API_ENDPOINT = "http://192.168.100.24:8000/api/v1/user";
+export const USER_API_ENDPOINT = "https://46e0-103-125-71-56.ngrok-free.app/api/v1/user";

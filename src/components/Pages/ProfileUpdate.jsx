@@ -19,17 +19,17 @@ import { useSelector } from "react-redux";
 const ProfileUpdate = ({ open, setOpen }) => {
 
   const [loading, setLoading] = useState(false);
-  const { user } = useSelector((store) => store.auth);
+  const { user } = useSelector(store => store.auth);
 
   const [input, setInput] = useState({
     fullname: user?.fullname,
     email: user?.email,
-    phonenumber: user?.phonenumber,
-    bio: user?.bio,
-    skills: user?.profile?.skills?.map((skill) => skill),
+    phoneNumber: user?.phoneNumber,
+    bio: user?.profile?.bio,
+    skills: user?.profile?.skills?.map((skills) => skills),
     file: user?.profile?.resume,
   });
-  
+
   return (
     <div>
       <Dialog open={open}>
@@ -71,7 +71,7 @@ const ProfileUpdate = ({ open, setOpen }) => {
               <Label htmlFor="phone">Phone</Label>
               <Input
                 id="phone"
-                value={input.phonenumber}
+                value={input.phoneNumber}
                 name="phone"
                 className="col-span-3"
               />

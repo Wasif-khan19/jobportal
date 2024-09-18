@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { useSelector } from "react-redux";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // const { user } = useSelector((store) => store.auth);
-  const user = true
+  const { user } = useSelector((store) => store.auth);
 
   // Listen to scroll and update the isScrolled state
   useEffect(() => {
