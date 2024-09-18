@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Navbar from "../shared/Navbar";
 import FilterCard from "./FilterCard";
 import TotalJobs from "./TotalJobs";
@@ -11,11 +12,12 @@ function AllJobs() {
         <div className="flex gap-5">
           <div className="w-20%">
             <FilterCard/>
+           
           </div>
           {
             allJobs.length <0 ? <span>Not Found</span>:(
-              <div className="flex-1 h-[80vh] pb-5 overflow-y-auto">
-                <div  className="grid grid-cols-3 gap-4">
+              <div className="flex-1 h-auto pb-5 overflow-y-auto">
+                <div  className="gap-4">
                   {
                     allJobs.map((item,index)=>(
                       <div key={allJobs}>

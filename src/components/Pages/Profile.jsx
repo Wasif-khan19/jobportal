@@ -5,8 +5,12 @@ import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Card, CardHeader } from "../ui/card";
 import { Link } from "react-router-dom";
+import AppliedJobs from "./AppliedJobs";
+import { useState } from "react";
+import ProfileUpdate from "./ProfileUpdate";
 
 function Profile() {
+  const [open, setOpen] = useState(false)
   return (
     <div>
       <Navbar />
@@ -31,6 +35,7 @@ function Profile() {
               </div>
               <div>
                 <Button
+                  onClick={() => setOpen(true)}
                   variant="outline"
                   className="rounded-full h-12 w-12"
                   size="icon"
@@ -94,6 +99,14 @@ function Profile() {
           </CardHeader>
         </Card>
       </div>
+
+      {/* applied jobs all content component */}
+      <div className="flex justify-center items-center mt-14">
+        <Card className="border max-w-5xl w-full">
+          <AppliedJobs />
+        </Card>
+      </div>
+      <ProfileUpdate open={open} setOpen={setOpen}/>
     </div>
   );
 }

@@ -2,8 +2,11 @@ import { Bookmark } from "lucide-react";
 import { Avatar, AvatarImage } from "../ui/avatar";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
+import { useNavigate } from "react-router-dom";
 
 function TotalJobs() {
+  const navigate = useNavigate();
+  const jobId = '123456789'
   return (
     <div className="rounded-md border border-gray-200 bg-white shadow-xl p-4 mt-6  cursor-pointer space-y-4">
       <div className="flex justify-between">
@@ -24,7 +27,7 @@ function TotalJobs() {
               <AvatarImage src="B.PNG" alt="Img" />
             </Avatar>
           </Button>
-        </div>
+        </div> 
         <div>
           <h1 className="font-semibold tracking-tight text-lg">Comapny Name</h1>
           <p className="text-sm font-light text-muted-foreground">Country</p>
@@ -54,7 +57,7 @@ function TotalJobs() {
           <Button variant="outline">Save</Button>
         </div>
         <div>
-          <Button>Details</Button>
+          <Button onClick={()=>navigate(`/job/description/${jobId}`)}>Details</Button>
         </div>
       </div>
     </div>
