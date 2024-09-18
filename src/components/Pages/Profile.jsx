@@ -1,16 +1,17 @@
 import { Edit, Link2, Mail, Smartphone } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../shared/Navbar";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Card, CardHeader } from "../ui/card";
-import { Link } from "react-router-dom";
 import AppliedJobs from "./AppliedJobs";
-import { useState } from "react";
 import ProfileUpdate from "./ProfileUpdate";
 
 function Profile() {
   const [open, setOpen] = useState(false)
+
   return (
     <div>
       <Navbar />
