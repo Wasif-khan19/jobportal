@@ -52,7 +52,7 @@ const ProfileUpdate = ({ open, setOpen }) => {
               <Input
                 id="name"
                 value={input.fullname}
-                name="name"
+                name="fullname"
                 className="col-span-3"
               />
             </div>
@@ -72,7 +72,7 @@ const ProfileUpdate = ({ open, setOpen }) => {
               <Input
                 id="phone"
                 value={input.phoneNumber}
-                name="phone"
+                name="phoneNumber"
                 className="col-span-3"
               />
             </div>
