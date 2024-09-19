@@ -77,7 +77,7 @@ function Navbar() {
                       variant="secondary"
                       className=" text-muted-foreground "
                     >
-                      <User className="mr-1 h-4 w-4 " /> Muhammad Wasif
+                      <User className="mr-1 h-4 w-4 " /> {user?.fullname}
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent className="w-80 rounded-2xl mt-4">
@@ -89,9 +89,9 @@ function Navbar() {
                       </div>
 
                       <div>
-                        <h1 className="text-xl">Hi, Muhammad Wasif</h1>
+                        <h1 className="text-xl">Hi, {user?.fullname}</h1>
                         <p className="text-muted-foreground">
-                          Full Stack Developer
+                        {user?.bio}
                         </p>
                       </div>
                       <div className="flex gap-2">
