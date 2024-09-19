@@ -34,10 +34,13 @@ function Login() {
       const res = await axios.post(`${USER_API_ENDPOINT}/login`, input, {
         headers: {
           "Content-Type": "application/json",
+       
+          
         },
         withCredentials: true,
       });
       if (res.data.success) {
+        
         dispatch(setUser(res.data.user))
         navigate("/");
         toast.message(res.data.message);
