@@ -103,7 +103,7 @@ function Profile() {
           </CardHeader>
         </Card>
       </div>
-
+      
       {/* applied jobs all content component */}
       <div className="flex justify-center items-center mt-14">
         <Card className="border max-w-5xl w-full">
@@ -111,6 +111,7 @@ function Profile() {
         </Card>
       </div>
       <ProfileUpdate open={open} setOpen={setOpen} />
+
     </div>
   );
 }
