@@ -10,7 +10,7 @@ function Browse() {
         <Navbar/>
         <div className="my-10 max-w-7xl mx-auto">
             <h1 className="font-bold text-2xl">All Jobs ({randomJobs.length})</h1>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="">
                 {
                     randomJobs.map((item, index) => {
                         return (
