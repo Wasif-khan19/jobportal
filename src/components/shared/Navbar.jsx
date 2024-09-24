@@ -1,11 +1,12 @@
 import { Dot, LogOut, User } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { setLogout } from "../redux/authSlice";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { useDispatch, useSelector } from "react-redux";
-import { setLoading } from "../redux/authSlice";
+import { toast } from "sonner";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,11 +14,11 @@ function Navbar() {
   const dispatch = useDispatch();
   const { user } = useSelector((store) => store.auth);
 
-  const handleLogout = async () => {
-    dispatch(setLoading(true));
+  const handleLogout = () => {
     localStorage.clear();
-    await navigate("/login");
-    dispatch(setLoading(false));
+    navigate("/");
+    toast.success("Logged out successfully");
+    dispatch(setLogout());
   };
 
   // Listen to scroll and update the isScrolled state
