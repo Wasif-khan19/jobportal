@@ -149,6 +149,7 @@ const ProfileUpdate = ({ open, setOpen }) => {
                 <Input
                   id="file"
                   name="file"
+                  value={input.file}
                   type="file"
                   accept="application/pdf"
                   onChange={fileChangeHandler}

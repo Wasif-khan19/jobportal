@@ -1,15 +1,24 @@
 import { Dot, LogOut, User } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Button } from "../ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading } from "../redux/authSlice";
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { user } = useSelector((store) => store.auth);
+
+  const handleLogout = async () => {
+    dispatch(setLoading(true));
+    localStorage.clear();
+    await navigate("/login");
+    dispatch(setLoading(false));
+  };
 
   // Listen to scroll and update the isScrolled state
   useEffect(() => {
@@ -90,18 +99,19 @@ function Navbar() {
 
                       <div>
                         <h1 className="text-xl">Hi, {user?.fullname}</h1>
-                        <p className="text-muted-foreground">
-                        {user?.bio}
-                        </p>
+                        <p className="text-muted-foreground">{user?.bio}</p>
                       </div>
                       <div className="flex gap-2">
                         <Button
                           variant="secondary"
                           className="w-full text-muted-foreground"
                         >
-                          <Link className="flex items-center" to='/profile'><User className="mr-1 h-4 w-4" /> Profile</Link>
+                          <Link className="flex items-center" to="/profile">
+                            <User className="mr-1 h-4 w-4" /> Profile
+                          </Link>
                         </Button>
                         <Button
+                          onClick={handleLogout}
                           variant="secondary"
                           className="w-full text-muted-foreground"
                         >

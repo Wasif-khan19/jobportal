@@ -1,29 +1,30 @@
+/* eslint-disable react/prop-types */
 import { Badge } from "../ui/badge";
 
-function LatestJobCard() {
+function LatestJobCard({job}) {
   return (
-    <div className=" rounded-md border border-gray-200 shadow-xl  bg-white p-4 mt-6  cursor-pointer space-y-2">
+    <div className=" bg-white rounded-md border border-gray-200 shadow-xl p-4 mt-6  cursor-pointer space-y-2">
       <div>
-        <h1 className="font-semibold tracking-tight text-lg">Comapny Name</h1>
-        <p className="text-md font-light text-muted-foreground">Country</p>
+        <h1 className="font-semibold tracking-tight text-lg">{job?.company}</h1>
+        <p className="text-md font-light text-muted-foreground">{job.location}</p>
       </div>
 
       <div className="">
-        <h1 className="font-semibold tracking-tight text-lg">Job Title</h1>
+        <h1 className="font-semibold tracking-tight text-lg">{job?.title}</h1>
         <p className="text-md font-normal text-muted-foreground">
-          lorem Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}
+          {job?.description}
         </p>
       </div>
 
       <div className="flex gap-4">
         <Badge variant="secondary" className="text-gray-500">
-          Full Time
+          {job?.jobType}
         </Badge>
         <Badge variant="secondary" className="text-gray-500">
-          Remote
+          {job?.position} Position
         </Badge>
         <Badge variant="secondary" className="text-gray-500">
-          90 LPA
+          {job?.salary} LPA
         </Badge>
       </div>
     </div>

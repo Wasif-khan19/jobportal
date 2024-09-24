@@ -6,7 +6,7 @@ import Footer from "../shared/Footer";
 import Navbar from "../shared/Navbar";
 
 const Layout = () => {
-  getAllJobs()
+  getAllJobs();
   return (
     <div>
       <Navbar />

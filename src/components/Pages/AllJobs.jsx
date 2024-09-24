@@ -3,7 +3,7 @@ import Navbar from "../shared/Navbar";
 import FilterCard from "./FilterCard";
 import TotalJobs from "./TotalJobs";
 
-const allJobs = [1, 2, 3, 4, 5, 6];
+const allJobs = [1, 2, 3, 4];
 function AllJobs() {
   return(
     <div>
