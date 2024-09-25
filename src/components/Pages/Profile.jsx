@@ -1,4 +1,4 @@
-import { Edit, Mail, Smartphone } from "lucide-react";
+import { Edit, Smartphone } from "lucide-react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import Navbar from "../shared/Navbar";
@@ -53,10 +53,7 @@ function Profile() {
               <h1 className=" font-semibold text-base">Personal Information</h1>
               <div className="justify-between mt-3 grid space-y-6">
                 <div className="space-y-2">
-                  <div className="flex items-center space-x-2">
-                    <Mail className="text-muted-foreground text-sm" />
-                    <span className="text-muted-foreground">{user?.email}</span>
-                  </div>
+                  
                   <div className="flex items-center space-x-2">
                     <Smartphone className="text-muted-foreground text-sm" />
                     <span className="text-muted-foreground">

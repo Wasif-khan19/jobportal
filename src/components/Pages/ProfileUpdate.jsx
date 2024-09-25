@@ -53,9 +53,7 @@ const ProfileUpdate = ({ open, setOpen }) => {
     if (input.file) {
       formData.append("file", input.file);
     }
-    if (input.profilePhoto) {
-      formData.append("profilePhoto", input.profilePhoto)
-    }
+    
 
     const token = localStorage.getItem("token");
     try {
@@ -147,7 +145,7 @@ const ProfileUpdate = ({ open, setOpen }) => {
                   className="col-span-3"
                 />
               </div>
-              
+
               <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="file" className="text-right">
                   Resume
