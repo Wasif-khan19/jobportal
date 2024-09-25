@@ -81,7 +81,7 @@ const reviews = [
 function SliderCarousel() {
   return (
     <div className="relative isolate px-6 lg:px-8 justify-center items-center flex">
-      <div className="mx-w-7xl py-28 sm:py-18 lg:py-18">
+      <div className="mx-w-7xl sm:py-18 lg:py-18">
         <div className="">
           <p className="text-center font-medium text-muted-foreground">
             TESTIMONALS HIGHLIGHTS
