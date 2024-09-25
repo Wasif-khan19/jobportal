@@ -1,16 +1,17 @@
-import { Edit, Link2, Mail, Smartphone } from "lucide-react";
+import { Edit, Mail, Smartphone } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Navbar from "../shared/Navbar";
-import { Avatar, AvatarFallback } from "../ui/avatar";
+import { Avatar, AvatarImage } from "../ui/avatar";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Card, CardHeader } from "../ui/card";
+import { Label } from "../ui/label";
 import AppliedJobs from "./AppliedJobs";
 import ProfileUpdate from "./ProfileUpdate";
-import { useSelector } from "react-redux";
 
 function Profile() {
+  const IsResume = true
   const [open, setOpen] = useState(false);
   const { user } = useSelector((store) => store.auth);
 
@@ -23,9 +24,9 @@ function Profile() {
             <div className="flex justify-between mb-2">
               <div className="flex items-center gap-2">
                 <div className="items-center justify-center flex">
-                  <Avatar className="h-20 w-20">
-                    <AvatarFallback>MW</AvatarFallback>
-                  </Avatar>
+                <Avatar className="h-20 w-20 border">
+                <AvatarImage src={user?.profile?.profilePhoto} alt="P" />
+              </Avatar>
                 </div>
                 <div>
                   <h1 className="font-semibold tracking-tight text-lg">
@@ -80,30 +81,30 @@ function Profile() {
                       <span>NA</span>
                     )}
                   </div>
-                </div> 
+                </div>
               </div>
             </div>
 
             <hr className="" />
-            <div className="py-2">
-              <h1 className=" font-semibold text-base">Resume</h1>
-              <div className="justify-between mt-3 grid space-y-6">
-                <div className="space-y-2">
-                  <div className="space-x-2">
-                    <Link to="https://github.com/Wasif-khan19">
-                      <Button className="space-x-2">
-                        <Link2 className="text-sm" />
-                        <span>Resume.pdf</span>
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
+
+            <div className="grid w-full max-w-sm items-center gap-1.5">
+              <Label className="text-md font-bold">Resume</Label>
+              {IsResume ? (
+                <a
+                  target="blank"
+                  href={user?.profile?.resume}
+                  className="text-blue-500 w-full hover:underline cursor-pointer"
+                >
+                  {user?.profile?.resumeOriginalName}
+                </a>
+              ) : (
+                <span>Na</span>
+              )}
             </div>
           </CardHeader>
         </Card>
       </div>
-      
+
       {/* applied jobs all content component */}
       <div className="flex justify-center items-center mt-14">
         <Card className="border max-w-5xl w-full">
@@ -111,7 +112,6 @@ function Profile() {
         </Card>
       </div>
       <ProfileUpdate open={open} setOpen={setOpen} />
-
     </div>
   );
 }

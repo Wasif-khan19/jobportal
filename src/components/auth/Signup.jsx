@@ -29,9 +29,9 @@ function Signup() {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  // const fileHandler = (e) => {
-  //   setInput({ ...input, file: e.target.files?.[0] });
-  // }; we will use this in profile section
+  const fileHandler = (e) => {
+    setInput({ ...input, file: e.target.files?.[0] });
+  };
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -169,6 +169,20 @@ function Signup() {
                         />
                         <Label htmlFor="r2">Recruiter</Label>
                       </div>
+
+                      {/* file uploading component with input and label */}
+
+                      <div className="flex items-center mx-14 gap-2 ">
+                        <Label>Profile</Label>
+                        <Input
+                          accept="image/*"
+                          type="file"
+                          onChange={fileHandler}
+                          className="cursor-pointer"
+                        />
+                      </div>
+
+                      
                     </div>
                   </RadioGroup>
                 </div>

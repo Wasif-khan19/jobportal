@@ -29,6 +29,7 @@ const ProfileUpdate = ({ open, setOpen }) => {
     bio: user?.profile?.bio || "",
     skills: user?.profile?.skills?.map((skill) => skill) || "",
     file: user?.profile?.resume || "",
+    profilePhoto: user?.profile?.profilePhoto || "",
   });
   const dispatch = useDispatch();
 
@@ -52,6 +53,10 @@ const ProfileUpdate = ({ open, setOpen }) => {
     if (input.file) {
       formData.append("file", input.file);
     }
+    if (input.profilePhoto) {
+      formData.append("profilePhoto", input.profilePhoto)
+    }
+
     const token = localStorage.getItem("token");
     try {
       setLoading(true);
@@ -142,6 +147,7 @@ const ProfileUpdate = ({ open, setOpen }) => {
                   className="col-span-3"
                 />
               </div>
+              
               <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="file" className="text-right">
                   Resume
@@ -149,13 +155,14 @@ const ProfileUpdate = ({ open, setOpen }) => {
                 <Input
                   id="file"
                   name="file"
-                  value={input.file}
                   type="file"
                   accept="application/pdf"
                   onChange={fileChangeHandler}
                   className="col-span-3"
                 />
               </div>
+
+             
             </div>
             <DialogFooter>
               {loading ? (
