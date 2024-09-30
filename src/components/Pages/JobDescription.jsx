@@ -3,9 +3,51 @@ import { Avatar, AvatarFallback } from "../ui/avatar";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Card, CardHeader } from "../ui/card";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { JOB_API_ENDPOINT } from "@/utils/api";
+import axios from "axios";
+import { setSingleJob } from "../redux/jobSlice";
 
 const JobDescription = () => {
-  const isApplied = false;
+  const { user } = useSelector((store) => store.auth.user);
+  const { singleJob } = useSelector((store) => store.job.singleJob);
+  const isApplied =
+    singleJob?.application?.some(
+      (application) => application.applicantId === user?._id
+    ) || false;
+
+  const params = useParams();
+  const jobId = params.id;
+  const dispatch = useDispatch();
+
+  const applyHandler = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      const res = await axios;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchSingleJob = async () => {
+      const token = localStorage.getItem("token");
+      try {
+        const res = await axios.get(`${JOB_API_ENDPOINT}/getJob/${jobId}`, {
+          withCredentials: true,
+        });
+        console.log(res);
+        if (res.data.success) {
+          dispatch(setSingleJob(res.data.job));
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchSingleJob();
+  }, [jobId, dispatch, user?._id]);
   return (
     <div>
       <div className="flex justify-center items-center mt-14">
