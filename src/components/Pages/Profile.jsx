@@ -11,7 +11,7 @@ import AppliedJobs from "./AppliedJobs";
 import ProfileUpdate from "./ProfileUpdate";
 
 function Profile() {
-  const IsResume = true
+  const IsResume = true;
   const [open, setOpen] = useState(false);
   const { user } = useSelector((store) => store.auth);
 
@@ -24,9 +24,9 @@ function Profile() {
             <div className="flex justify-between mb-2">
               <div className="flex items-center gap-2">
                 <div className="items-center justify-center flex">
-                <Avatar className="h-20 w-20 border">
-                <AvatarImage src={user?.profile?.profilePhoto} alt="P" />
-              </Avatar>
+                  <Avatar className="h-20 w-20 border">
+                    <AvatarImage src={user?.profile?.profilePhoto} alt="P" />
+                  </Avatar>
                 </div>
                 <div>
                   <h1 className="font-semibold tracking-tight text-lg">
@@ -53,7 +53,6 @@ function Profile() {
               <h1 className=" font-semibold text-base">Personal Information</h1>
               <div className="justify-between mt-3 grid space-y-6">
                 <div className="space-y-2">
-                  
                   <div className="flex items-center space-x-2">
                     <Smartphone className="text-muted-foreground text-sm" />
                     <span className="text-muted-foreground">
